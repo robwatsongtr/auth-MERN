@@ -6,7 +6,7 @@ and it then determines what we do with these requests and their subsequent data.
 const express = require('express')
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const userServices = require('../services/UserServices.js')
+const userServices = require('../Services/Userservices.js')
 
 // When a user registers, the first thing we do is utilize bcryptjs to 
 // encrypt the password (it is wise to do this as soon as possible). 
