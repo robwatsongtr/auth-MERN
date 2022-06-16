@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const auth = require('./helpers/jwt.js')
+const auth = require('./Helpers/jwt.js')
 const unless = require('express-unless')
-const users = require('./controllers/UserController.js')
-const errors = require('./helpers/errorHandler.js')
+const users = require('./Controllers/UserController.js')
+const errors = require('./Helpers/errorHandler.js')
 
 const port = 5002
 
@@ -19,10 +19,9 @@ app.use(auth.authenticateToken.unless({
     ]
 }))
 
-app.use(express.json()) // middleware for parsing application/json
-app.use('/users', users) // middleware for listening to routes
+app.use(express.json()) 
+app.use('/users', users) 
 app.use(errors.errorHandler); // middleware for error responses
-
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/auth-tutorial', { useNewUrlParser: true })
